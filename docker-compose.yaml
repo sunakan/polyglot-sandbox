@@ -8,7 +8,17 @@ services:
       dockerfile: ./Dockerfile
     container_name: ts-node
     hostname: ts-node
+    working_dir: /var/local/app/
     volumes:
       - type: bind
         source: ${PWD}/ts/
+        target: /var/local/app/
+  ruby:
+    image: ruby:2-slim
+    container_name: ruby
+    hostname: ruby
+    working_dir: /var/local/app/
+    volumes:
+      - type: bind
+        source: ${PWD}/ruby/
         target: /var/local/app/
