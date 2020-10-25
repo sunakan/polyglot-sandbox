@@ -1,0 +1,14 @@
+---
+version: '3.8'
+
+services:
+  ts-node:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: ts-node
+    hostname: ts-node
+    volumes:
+      - type: bind
+        source: ${PWD}/ts/
+        target: /var/local/app/
